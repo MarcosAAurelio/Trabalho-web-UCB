@@ -1,0 +1,28 @@
+# Dados locais e credenciais
+.env
+.env.*
+!.env.example
+
+# Dependências e caches de ferramentas
+node_modules/
+.cache/
+.npm/
+coverage/
+
+# Logs e arquivos temporários
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Configurações locais de editores
+.vscode/
+.idea/
+
+# Arquivos gerados pelo sistema operacional
+.DS_Store
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/

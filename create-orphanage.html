@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#15c3d6">
+  <meta name="description" content="Cadastre um orfanato no Happy e ajude mais pessoas a planejar uma visita.">
+  <title>Adicionar um orfanato — Happy</title>
+  <link rel="icon" href="assets/map-marker.svg" type="image/svg+xml">
+  <!-- Bootstrap oficial, servido localmente antes do tema Happy. -->
+  <link rel="stylesheet" href="assets/vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="assets/vendor/bootstrap/bootstrap.bundle.min.js" defer></script>
+  <script src="scripts/app.js" defer></script>
+</head>
+<body class="inner-page" data-page="create">
+  <a class="skip-link" href="#main-content">Ir para o formulário</a>
+  <aside class="sidebar" aria-label="Navegação">
+    <a href="index.html" class="sidebar-brand" aria-label="Happy, página inicial"><img src="assets/map-marker.svg" alt="" width="48" height="56"></a>
+    <a href="orphanages.html" class="btn back-button icon-button" aria-label="Voltar para o mapa" title="Voltar para o mapa"><img src="assets/arrow-back.svg" alt="" width="24" height="24"></a>
+  </aside>
+  <main class="form-page" id="main-content">
+    <h1 class="page-caption">Adicione um orfanato</h1>
+    <form class="card orphanage-form" id="orphanage-form" novalidate>
+      <fieldset>
+        <legend>Dados</legend>
+        <div class="map-container form-map-container">
+          <div class="happy-map form-map" id="location-map" tabindex="0" role="region" aria-label="Escolha a localização. Arraste para mover, use as setas do teclado ou clique para marcar. Enter seleciona o centro." aria-describedby="location-label location-error" data-mode="select" data-lat="-27.2143" data-lng="-49.6430" data-zoom="14">
+            <div class="map-tiles" aria-hidden="true"></div>
+            <div class="map-markers"></div>
+            <div class="map-unavailable" hidden>O mapa não carregou. Informe as coordenadas abaixo para continuar.</div>
+            <div class="map-controls" aria-label="Zoom do mapa"><button class="map-zoom-in" type="button" aria-label="Aproximar mapa">+</button><button class="map-zoom-out" type="button" aria-label="Afastar mapa">−</button></div>
+            <a class="map-attribution" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap</a>
+          </div>
+          <p class="map-footer" id="location-label" aria-live="polite">Clique no mapa para adicionar a localização</p>
+        </div>
+        <input type="hidden" id="latitude" name="latitude">
+        <input type="hidden" id="longitude" name="longitude">
+        <p class="field-error invalid-feedback" id="location-error" aria-live="polite"></p>
+        <div class="manual-location">
+          <button class="btn btn-link manual-location-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#manual-location-fields" aria-expanded="false" aria-controls="manual-location-fields">Informar coordenadas manualmente</button>
+          <div class="collapse" id="manual-location-fields">
+          <div class="coordinates-fields row g-3">
+            <div class="input-block col-12 col-sm-6"><label class="form-label" for="manual-latitude">Latitude</label><input class="form-control" type="number" id="manual-latitude" step="any" min="-90" max="90" placeholder="Ex.: -27.2143" inputmode="decimal" aria-describedby="location-error"></div>
+            <div class="input-block col-12 col-sm-6"><label class="form-label" for="manual-longitude">Longitude</label><input class="form-control" type="number" id="manual-longitude" step="any" min="-180" max="180" placeholder="Ex.: -49.6430" inputmode="decimal" aria-describedby="location-error"></div>
+          </div>
+          <button type="button" class="btn btn-outline-info secondary-button" id="set-location">Usar localização</button>
+          </div>
+        </div>
+        <div class="input-block">
+          <label class="form-label" for="name">Nome</label>
+          <input class="form-control" id="name" name="name" maxlength="80" autocomplete="organization" required aria-describedby="name-error">
+          <p id="name-error" class="field-error invalid-feedback" aria-live="polite"></p>
+        </div>
+        <div class="input-block">
+          <label class="form-label" for="about">Sobre <span class="label-hint">Máximo de 300 caracteres</span></label>
+          <textarea class="form-control" id="about" name="about" maxlength="300" required aria-describedby="about-error about-count"></textarea>
+          <span id="about-count" class="character-count">0/300</span>
+          <p id="about-error" class="field-error invalid-feedback" aria-live="polite"></p>
+        </div>
+        <div class="input-block">
+          <label class="form-label" for="whatsapp">Número de Whatsapp</label>
+          <input class="form-control" id="whatsapp" name="whatsapp" type="tel" maxlength="22" autocomplete="tel" inputmode="tel" required aria-describedby="whatsapp-error">
+          <p id="whatsapp-error" class="field-error invalid-feedback" aria-live="polite"></p>
+        </div>
+        <div class="input-block photo-block">
+          <span class="input-label" id="photos-label">Fotos</span>
+          <div class="photo-previews d-flex flex-wrap gap-3" id="photo-previews" role="group" aria-labelledby="photos-label">
+            <label class="btn btn-outline-info photos-add" for="photos-input" tabindex="0" role="button" aria-label="Adicionar fotos">
+              <img src="assets/plus.svg" alt="" width="24" height="24">
+            </label>
+          </div>
+          <input class="visually-hidden" id="photos-input" type="file" accept="image/jpeg,image/png,image/webp" multiple aria-describedby="photos-error">
+          <p id="photos-error" class="field-error invalid-feedback" aria-live="polite"></p>
+        </div>
+      </fieldset>
+      <fieldset class="visitation-fields">
+        <legend>Visitação</legend>
+        <div class="input-block">
+          <label class="form-label" for="instructions">Instruções</label>
+          <textarea class="form-control" id="instructions" name="instructions" maxlength="1000" required aria-describedby="instructions-error"></textarea>
+          <p id="instructions-error" class="field-error invalid-feedback" aria-live="polite"></p>
+        </div>
+        <div class="input-block">
+          <label class="form-label" for="opening-hours">Horário das visitas</label>
+          <input class="form-control" id="opening-hours" name="opening_hours" maxlength="80" required aria-describedby="opening-hours-error">
+          <p id="opening-hours-error" class="field-error invalid-feedback" aria-live="polite"></p>
+        </div>
+        <div class="form-check form-switch weekend-field d-flex align-items-center justify-content-between gap-3">
+          <label class="form-check-label" for="open-on-weekends">Atende fim de semana?</label>
+          <input class="form-check-input" type="checkbox" id="open-on-weekends" name="open_on_weekends" role="switch">
+        </div>
+      </fieldset>
+      <p id="form-feedback" class="form-feedback" role="status"></p>
+      <button class="btn btn-success primary-button w-100 d-flex align-items-center justify-content-center gap-3 confirm-button" id="submit-button" type="submit">Confirmar</button>
+    </form>
+    <section class="card success-panel" id="success-panel" hidden aria-labelledby="success-title" aria-live="polite">
+      <img src="assets/map-marker.svg" alt="" width="72" height="84">
+      <h2 id="success-title">Tudo pronto!</h2>
+      <p><strong id="success-name"></strong> foi cadastrado com sucesso.</p>
+      <p>As informações estão salvas neste navegador.</p>
+      <a class="btn btn-success primary-button w-100 d-flex align-items-center justify-content-center gap-3" id="success-detail" href="orphanage.html">Ver orfanato</a>
+      <a class="text-link" id="success-directory" href="orphanages.html">Voltar para o mapa</a>
+    </section>
+  </main>
+</body>
+</html>

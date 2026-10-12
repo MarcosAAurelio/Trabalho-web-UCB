@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#15c3d6">
+  <meta name="description" content="Veja os dados do orfanato, a localização e as informações de visitação.">
+  <title>Visite um orfanato — Happy</title>
+  <link rel="icon" href="assets/map-marker.svg" type="image/svg+xml">
+  <!-- Bootstrap oficial, servido localmente antes do tema Happy. -->
+  <link rel="stylesheet" href="assets/vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="assets/vendor/bootstrap/bootstrap.bundle.min.js" defer></script>
+  <script src="scripts/app.js" defer></script>
+</head>
+<body class="inner-page" data-page="detail">
+  <a class="skip-link" href="#main-content">Ir para as informações</a>
+  <aside class="sidebar" aria-label="Navegação"><a href="index.html" class="sidebar-brand" aria-label="Happy, página inicial"><img src="assets/map-marker.svg" alt="" width="48" height="56"></a><a href="orphanages.html" class="btn back-button icon-button" aria-label="Voltar para o mapa"><img src="assets/arrow-back.svg" alt="" width="24" height="24"></a></aside>
+  <main class="detail-page" id="main-content">
+    <article class="card orphanage-detail" id="detail-content" hidden>
+      <div id="detail-photos" class="detail-photos"></div>
+      <div class="detail-body">
+        <h1 id="detail-name"></h1><p id="detail-about" class="detail-text"></p>
+        <div class="map-container detail-map-container">
+          <div class="happy-map detail-map" id="detail-map" tabindex="0" role="region" aria-label="Localização do orfanato" data-mode="view" data-lat="-27.2143" data-lng="-49.6430" data-zoom="15"><div class="map-tiles" aria-hidden="true"></div><div class="map-markers"></div><div class="map-unavailable" hidden>Mapa indisponível. Use o link abaixo para abrir a localização.</div><div class="map-controls"><button class="map-zoom-in" type="button" aria-label="Aproximar mapa">+</button><button class="map-zoom-out" type="button" aria-label="Afastar mapa">−</button></div><a class="map-attribution" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap</a></div>
+          <a class="map-footer" id="detail-routes" href="https://www.openstreetmap.org" target="_blank" rel="noopener noreferrer">Ver rotas no mapa</a>
+        </div>
+        <section class="detail-visitation" aria-labelledby="visitation-title"><h2 id="visitation-title">Instruções para visita</h2><p id="detail-instructions" class="detail-text"></p><div class="visit-cards row g-3"><div class="col-12 col-md-6"><div class="visit-card card h-100"><img src="assets/clock.svg" alt="" width="32" height="32"><h3>Horário das visitas</h3><p id="detail-hours"></p></div></div><div class="col-12 col-md-6"><div class="visit-card card h-100 weekend-card" id="weekend-card"><span class="weekend-symbol" aria-hidden="true">♡</span><h3>Fim de semana</h3><p id="detail-weekends"></p></div></div></div><a class="btn btn-success primary-button w-100 d-flex align-items-center justify-content-center gap-3 whatsapp-button" id="detail-whatsapp" href="https://wa.me" target="_blank" rel="noopener noreferrer"><img src="assets/whatsapp.svg" alt="" width="24" height="24">Entrar em contato</a></section>
+      </div>
+    </article>
+    <section class="card success-panel missing-panel" id="detail-missing" hidden><img src="assets/map-marker.svg" alt="" width="64" height="74"><h1>Orfanato não encontrado</h1><p>Escolha um cadastro no mapa para ver as informações de visitação.</p><a class="btn btn-success primary-button w-100 d-flex align-items-center justify-content-center gap-3" href="orphanages.html">Voltar para o mapa</a></section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,296 @@
+@font-face {
+  font-family: Nunito;
+  src: url("assets/nunito.woff2") format("woff2");
+  font-weight: 200 1000;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --turquoise: #15c3d6;
+  --turquoise-dark: #087f94;
+  --yellow: #ffd666;
+  --background: #ebf2f5;
+  --text: #4d6f80;
+  --muted: #607985;
+  --border: #d3e2e5;
+  --field: #f5f8fa;
+  --green: #37c77f;
+  --green-dark: #075b3b;
+  --error: #b54356;
+  --radius: 20px;
+  /* O Bootstrap fornece os componentes; estas variáveis definem o tema Happy. */
+  --bs-body-font-family: Nunito, "Segoe UI", sans-serif;
+  --bs-body-color: var(--text);
+  --bs-body-bg: var(--background);
+  --bs-border-color: var(--border);
+  --bs-link-color: var(--turquoise-dark);
+  --bs-link-hover-color: #056679;
+  --bs-form-invalid-color: var(--error);
+  --bs-form-invalid-border-color: var(--error);
+}
+
+html { min-height: 100%; }
+body { font-weight: 600; }
+button, a, label[role="button"] { -webkit-tap-highlight-color: transparent; }
+button, input, textarea, a, summary { touch-action: manipulation; }
+button, a { transition: background-color 180ms ease, color 180ms ease, transform 180ms ease; }
+button { cursor: pointer; }
+button:disabled { cursor: wait; opacity: .65; }
+a { color: inherit; }
+img { display: block; max-width: 100%; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 3px solid #096b85; outline-offset: 4px; }
+.skip-link { position: fixed; left: 16px; top: 12px; z-index: 10; padding: 12px 20px; background: white; border-radius: 8px; transform: translateY(-150%); }
+.skip-link:focus { transform: translateY(0); }
+.icon-button { --bs-btn-padding-x: 0; --bs-btn-padding-y: 0; --bs-btn-border-width: 0; display: grid; place-items: center; flex-shrink: 0; }
+.icon-button:active, .primary-button:active { transform: scale(.96); }
+.brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
+.brand span { font-size: 48px; font-weight: 900; letter-spacing: -1.7px; line-height: 1; color: #05252e; }
+
+/* Tela inicial: proporções e paleta das fotos de referência. */
+.home-page { background: linear-gradient(329.54deg, #29b6d1 0%, #00c7c7 100%); color: white; }
+.landing { width: min(1120px, calc(100% - 112px)); min-height: 100dvh; margin: auto; position: relative; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto 1fr; padding: clamp(48px, 9dvh, 88px) 0 clamp(48px, 8dvh, 80px); }
+.landing-brand { position: relative; z-index: 2; align-self: start; }
+.landing-brand img { width: 56px; height: 64px; }
+.landing-location { text-align: right; font-size: 20px; align-self: start; padding-top: 7px; position: relative; z-index: 2; }
+.landing-location strong, .landing-location span { display: block; }
+.landing-location strong { font-weight: 800; }
+.landing-copy { align-self: end; z-index: 2; padding-top: 60px; }
+.landing-copy h1 { font-size: clamp(54px, 5.5vw, 76px); font-weight: 800; line-height: 1.02; letter-spacing: -.8px; margin: 0 0 30px; }
+.landing-copy p { font-size: 22px; line-height: 1.5; margin: 0; font-weight: 600; }
+.landing-illustration { position: absolute; width: 60%; height: 87%; object-fit: contain; top: 6%; left: 35%; }
+.enter-button { --bs-btn-bg: var(--yellow); --bs-btn-hover-bg: #ffdf8d; --bs-btn-active-bg: #ffdf8d; position: absolute; bottom: clamp(48px, 8dvh, 80px); right: 0; width: 80px; height: 80px; border-radius: 28px; z-index: 3; }
+.enter-button img { width: 30px; height: 30px; }
+.enter-button:hover { transform: translateX(3px); }
+
+/* Navegação lateral compartilhada. */
+.sidebar { position: fixed; inset: 0 auto 0 0; width: 96px; padding: 32px 24px; background: linear-gradient(180deg, #15c3d6, #13bccf); display: flex; flex-direction: column; align-items: center; justify-content: space-between; z-index: 4; }
+.sidebar-brand img { width: 48px; height: 56px; }
+.back-button { --bs-btn-bg: #0eafc2; --bs-btn-hover-bg: #078ca3; --bs-btn-active-bg: #078ca3; width: 48px; height: 48px; border-radius: 16px; }
+.form-page { margin-left: 96px; padding: 40px 24px 72px; }
+.page-caption { margin: 0 auto 40px; text-align: center; font-size: 16px; font-weight: 600; color: var(--muted); }
+.orphanage-form { width: min(700px, 100%); margin: auto; padding: 56px 64px 64px; border-radius: var(--radius); border: 1px solid var(--border); background: white; }
+legend { float: none; width: 100%; padding: 0 0 22px; margin-bottom: 32px; border-bottom: 1px solid var(--border); font-size: 32px; line-height: 1.4; font-weight: 700; color: var(--text); }
+.visitation-fields { margin-top: 64px; }
+.input-block { position: relative; margin-top: 22px; }
+.input-block label, .input-label { display: block; color: var(--muted); font-size: 15px; margin-bottom: 8px; }
+.label-hint { font-size: 12px; margin-left: 16px; }
+.form-control { min-height: 56px; border-radius: 16px; color: var(--text); background-color: var(--field); padding: 15px 18px; font-weight: 600; }
+textarea.form-control { min-height: 120px; line-height: 1.6; }
+.form-control::placeholder { color: var(--muted); font-weight: 400; }
+.form-control:focus { color: var(--text); background-color: var(--field); border-color: #1bb5c9; box-shadow: 0 0 0 3px #15c3d61f; }
+.field-error { color: var(--error); font-size: 13px; line-height: 1.45; margin: 7px 0 0; }
+.field-error:empty { display: none; }
+.field-error:not(:empty) { display: block; }
+.character-count { display: block; text-align: right; font-size: 11px; line-height: 1; margin-top: 5px; color: var(--muted); }
+.character-count { position: absolute; right: 10px; bottom: 10px; background: var(--field); padding: 2px 4px; pointer-events: none; }
+.input-block:has(.field-error:not(:empty)) .character-count { position: static; }
+.photo-previews { margin-top: 4px; }
+.photos-add { height: 96px; width: 96px; border: 1px dashed #96d2dc; border-radius: var(--radius); background: var(--field); display: grid !important; place-items: center; cursor: pointer; margin: 0 !important; }
+.photos-add:hover { border-color: var(--turquoise); background: #eefbfd; }
+.photos-add img, .add-orphanage img { filter: brightness(0) saturate(100%) invert(68%) sepia(75%) saturate(962%) hue-rotate(139deg) brightness(89%) contrast(88%); }
+.photo-preview { width: 96px; height: 96px; position: relative; margin: 0; }
+.photo-preview img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius); }
+.photo-preview button { position: absolute; top: 4px; right: 4px; border: 0; border-radius: 8px; width: 26px; height: 26px; padding: 0; display: grid; place-items: center; line-height: 1; background: white; color: var(--error); font-weight: 800; }
+.weekend-field { padding-left: 0; margin-top: 26px; font-size: 15px; color: var(--muted); }
+.weekend-field .form-check-label, .weekend-field .form-check-input { cursor: pointer; }
+.weekend-field .form-check-input { float: none; flex: 0 0 auto; margin: 0; width: 56px; height: 28px; }
+.weekend-field .form-check-input:checked { background-color: #28b575; border-color: #28b575; }
+.weekend-field .form-check-input:focus { border-color: #1bb5c9; box-shadow: 0 0 0 3px #15c3d61f; }
+.primary-button { --bs-btn-color: var(--green-dark); --bs-btn-bg: #9de1c0; --bs-btn-border-color: #9de1c0; --bs-btn-hover-color: var(--green-dark); --bs-btn-hover-bg: #7ed8ad; --bs-btn-hover-border-color: #7ed8ad; --bs-btn-active-color: var(--green-dark); --bs-btn-active-bg: #7ed8ad; --bs-btn-active-border-color: #7ed8ad; --bs-btn-disabled-color: var(--green-dark); --bs-btn-disabled-bg: #9de1c0; --bs-btn-disabled-border-color: #9de1c0; --bs-btn-padding-y: 1rem; --bs-btn-padding-x: 1.5rem; --bs-btn-border-radius: 1rem; --bs-btn-font-weight: 800; min-height: 64px; white-space: nowrap; }
+.confirm-button { margin-top: 28px; }
+.form-feedback { margin: 16px 0 0; color: var(--error); font-size: 14px; }
+.form-feedback:empty { display: none; }
+.success-panel { width: min(700px, 100%); margin: 56px auto; border: 1px solid var(--border); border-radius: var(--radius); background: white; padding: 64px; text-align: center; }
+.success-panel > img { margin: 0 auto 24px; }
+.success-panel h2, .success-panel h1 { font-size: 36px; margin: 0 0 16px; line-height: 1.2; }
+.success-panel p { margin: 12px 0; }
+.success-panel .primary-button { margin-top: 32px; }
+.text-link { display: inline-block; color: var(--turquoise-dark); margin-top: 24px; text-underline-offset: 4px; }
+
+/* Mapas em JavaScript puro: tiles OSM, seleção, zoom e movimento. */
+.map-container { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--field); }
+.happy-map { position: relative; overflow: hidden; touch-action: none; background: #e6eeec; isolation: isolate; }
+.form-map { height: 240px; cursor: crosshair; }
+.map-tiles, .map-markers { position: absolute; inset: 0; }
+.map-tiles { pointer-events: none; }
+.map-tiles img, .map-tile { position: absolute; width: 256px; height: 256px; max-width: none; pointer-events: none; user-select: none; }
+.form-map .map-tiles { filter: saturate(.3) opacity(.68); }
+.map-markers { pointer-events: none; }
+.map-marker { position: absolute; transform: translate(-50%, -100%); width: 48px; height: 58px; border: 0; padding: 0; background: transparent; pointer-events: auto; display: grid; place-items: center; }
+.map-marker img { width: 48px; height: 56px; }
+.map-marker:hover { transform: translate(-50%, -100%) scale(1.08); }
+.map-marker-label { position: absolute; bottom: calc(100% + 5px); left: 50%; transform: translateX(-50%); background: white; color: var(--text); border-radius: 8px; padding: 8px 12px; white-space: nowrap; box-shadow: 0 3px 15px #46748120; }
+.map-controls { position: absolute; top: 12px; left: 12px; display: grid; border: 1px solid var(--border); background: white; border-radius: 10px; overflow: hidden; z-index: 2; }
+.map-controls button { background: white; color: var(--text); border: 0; width: 34px; height: 34px; font: 700 24px/1 Nunito, sans-serif; }
+.map-controls button + button { border-top: 1px solid var(--border); }
+.map-controls button:hover { background: #edf8fa; }
+.map-attribution { position: absolute; bottom: 0; right: 0; padding: 2px 5px; background: #ffffffe8; color: #475e68; font: 10px/1.5 sans-serif; z-index: 2; text-decoration: none; }
+.map-unavailable { position: absolute; inset: 0; display: grid; place-content: center; padding: 30px 55px; text-align: center; font-size: 14px; color: var(--text); background: #eef3f2e8; pointer-events: none; }
+.map-footer { min-height: 48px; margin: 0; display: flex; align-items: center; justify-content: center; text-align: center; padding: 12px 20px; color: var(--turquoise-dark); font-weight: 800; font-size: 12px; text-decoration: none; }
+.manual-location { font-size: 12px; color: var(--muted); margin: 12px 0 28px; }
+.manual-location-toggle { --bs-btn-color: var(--muted); --bs-btn-hover-color: var(--turquoise-dark); --bs-btn-active-color: var(--turquoise-dark); --bs-btn-padding-x: 0; --bs-btn-padding-y: 0; font-size: 12px; text-align: left; text-underline-offset: 3px; }
+.coordinates-fields { padding-top: 4px; }
+.coordinates-fields .input-block { margin-top: var(--bs-gutter-y); min-width: 0; }
+.coordinates-fields .input-block label { font-size: 13px; }
+.coordinates-fields input { font-size: 14px; }
+.secondary-button { --bs-btn-color: var(--turquoise-dark); --bs-btn-bg: #edf9fb; --bs-btn-border-color: var(--border); --bs-btn-hover-color: var(--turquoise-dark); --bs-btn-hover-bg: #def1f5; --bs-btn-hover-border-color: #a8d4de; --bs-btn-active-color: var(--turquoise-dark); --bs-btn-active-bg: #def1f5; --bs-btn-active-border-color: #a8d4de; --bs-btn-border-radius: 10px; --bs-btn-padding-y: 10px; --bs-btn-padding-x: 16px; margin-top: 12px; }
+
+/* Mapa e lista de cadastros. */
+.directory-layout { min-height: 100dvh; }
+.directory-sidebar { background: linear-gradient(180deg, #15c3d6, #13bccf); color: white; padding: 44px 38px 32px; min-width: 0; height: 100dvh; overflow-y: auto; }
+.directory-brand span { font-size: 40px; }
+.directory-heading { margin-top: 54px; }
+.directory-heading h1 { margin: 0; font-size: 34px; font-weight: 800; line-height: 1.2; letter-spacing: -.4px; }
+.directory-heading p { font-size: 17px; line-height: 1.5; margin: 20px 0 0; max-width: 250px; }
+.directory-entries { margin-top: 34px; }
+.search-label { display: block; font-weight: 800; font-size: 14px; margin-bottom: 10px; }
+.directory-search { background: #fff !important; border-color: transparent !important; border-radius: 12px !important; min-height: 46px !important; font-size: 14px; padding: 12px 14px !important; }
+.directory-empty { font-size: 14px; background: #087f9426; padding: 16px; border-radius: 12px; margin-top: 14px; }
+.directory-empty p { margin: 0 0 8px; }
+.directory-empty a { font-weight: 800; text-underline-offset: 3px; }
+.directory-feedback { font-size: 13px; margin: 12px 0 0; background: #087f943b; border-radius: 8px; }
+.directory-feedback:empty { display: none; }
+.orphanage-list { --bs-list-group-color: #3d6676; --bs-list-group-action-color: #3d6676; --bs-list-group-action-hover-color: #3d6676; --bs-list-group-action-hover-bg: #effdff; margin-top: 12px; }
+.orphanage-list .orphanage-list-item { padding: 14px; border-radius: 12px; border-width: 1px; }
+.orphanage-list-text { min-width: 0; }
+.orphanage-list-arrow { flex-shrink: 0; font-size: 24px; color: var(--turquoise-dark); }
+.directory-no-results { font-size: 14px; margin: 4px 0; }
+.orphanage-list-item:hover { transform: translateX(2px); }
+.orphanage-list-title { font-weight: 800; display: block; overflow-wrap: anywhere; }
+.orphanage-list-meta { font-size: 12px; display: block; margin-top: 3px; }
+.directory-footer { margin-top: auto; padding-top: 32px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.directory-footer strong, .directory-footer span { display: block; }
+.directory-footer strong { font-size: 18px; font-weight: 800; }
+.directory-footer span { font-size: 15px; }
+.directory-main { position: relative; min-width: 0; min-height: 100dvh; }
+.directory-map { height: 100dvh; cursor: grab; }
+.directory-map:active { cursor: grabbing; }
+.directory-map .map-controls { top: 28px; left: 28px; }
+.directory-map .map-unavailable { font-size: 18px; padding: 80px; }
+.map-toolbar { position: absolute; right: 32px; bottom: 40px; display: flex; align-items: center; gap: 12px; z-index: 3; }
+.add-orphanage { --bs-btn-bg: var(--turquoise); --bs-btn-hover-bg: #0aa7bd; --bs-btn-active-bg: #0aa7bd; width: 64px; height: 64px; border-radius: 22px; }
+.add-orphanage img { filter: brightness(0) invert(1); }
+.locate-button { --bs-btn-color: var(--text); --bs-btn-bg: white; --bs-btn-border-color: var(--border); --bs-btn-hover-color: var(--text); --bs-btn-hover-bg: #effbfc; --bs-btn-hover-border-color: var(--border); --bs-btn-active-color: var(--text); --bs-btn-active-bg: #effbfc; --bs-btn-active-border-color: var(--border); --bs-btn-padding-y: 12px; --bs-btn-padding-x: 18px; --bs-btn-border-radius: 12px; --bs-btn-font-size: 14px; --bs-btn-font-weight: 800; }
+
+/* Informações de um cadastro. */
+.detail-page { margin-left: 96px; padding: 64px 24px; }
+.orphanage-detail { width: min(700px, 100%); margin: auto; background: white; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+.detail-photos { display: block; }
+.detail-photos:empty { display: none; }
+.detail-photo-main { width: 100%; height: 310px; object-fit: cover; }
+.detail-photo-thumbnails { display: flex; gap: 12px; padding: 18px 24px 0; overflow-x: auto; }
+.detail-photo-thumb { flex: 0 0 82px; height: 64px; border: 2px solid transparent; border-radius: 12px; padding: 0; overflow: hidden; opacity: .6; background: var(--field); }
+.detail-photo-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.detail-photo-thumb.is-active, .detail-photo-thumb:hover { opacity: 1; border-color: var(--turquoise); }
+.detail-no-photos { padding: 20px 24px; margin: 0; text-align: center; font-size: 14px; background: var(--field); color: var(--muted); }
+.detail-body { padding: 48px 64px 64px; }
+.detail-body h1 { font-size: 44px; font-weight: 800; line-height: 1.2; margin: 0 0 24px; overflow-wrap: anywhere; }
+.detail-text { font-size: 17px; line-height: 1.8; white-space: pre-line; overflow-wrap: anywhere; }
+.detail-map-container { margin-top: 32px; }
+.detail-map { height: 230px; }
+.detail-map-container .map-footer { font-size: 14px; min-height: 56px; }
+.detail-map-container .map-footer:hover { background: #eaf9fc; }
+.detail-visitation { margin-top: 44px; padding-top: 36px; border-top: 1px solid var(--border); }
+.detail-visitation h2 { font-size: 32px; margin: 0 0 16px; line-height: 1.3; }
+.visit-cards { margin-top: 30px; margin-bottom: 30px; }
+.visit-card { padding: 24px; border: 1px solid #b3dae2; border-radius: var(--radius); background: #f1fbfd; color: #527e91; }
+.visit-card h3 { font-size: 14px; margin: 14px 0 8px; }
+.visit-card p { font-size: 15px; margin: 0; overflow-wrap: anywhere; }
+.weekend-card { border-color: #a9ddc2; background: #f1fcf6; color: #288b5e; }
+.weekend-card.is-closed { border-color: #ecc5cb; background: #fff5f6; color: #aa5263; }
+.weekend-symbol { font-size: 35px; line-height: 32px; display: block; }
+.whatsapp-button { --bs-btn-color: #073e2a; --bs-btn-bg: var(--green); --bs-btn-border-color: var(--green); --bs-btn-hover-color: #073e2a; --bs-btn-hover-bg: #31b976; --bs-btn-hover-border-color: #31b976; --bs-btn-active-color: #073e2a; --bs-btn-active-bg: #31b976; --bs-btn-active-border-color: #31b976; }
+.missing-panel { margin-top: 24px; }
+
+@media (min-width: 1400px) {
+  .landing { width: min(1200px, calc(100% - 200px)); }
+  .landing-copy h1 { font-size: 80px; }
+  .landing-illustration { width: 62%; left: 34%; }
+}
+@media (max-width: 1023px) {
+  .landing { width: calc(100% - 80px); padding-top: 56px; padding-bottom: 56px; }
+  .landing-copy h1 { font-size: 60px; }
+  .landing-copy p { font-size: 18px; }
+  .landing-illustration { width: 63%; left: 34%; }
+  .landing-location { font-size: 17px; }
+  .landing-brand span { font-size: 40px; }
+  .landing-brand img { width: 48px; height: 56px; }
+  .enter-button { width: 68px; height: 68px; bottom: 56px; border-radius: 24px; }
+  .directory-sidebar { padding: 32px 28px; }
+  .directory-heading h1 { font-size: 30px; }
+}
+@media (max-width: 767px) {
+  .landing { width: calc(100% - 48px); display: grid; grid-template-columns: 1fr auto; grid-template-rows: auto auto 1fr auto; padding: 30px 0; min-height: 100dvh; }
+  .landing-brand { gap: 8px; }
+  .landing-brand img { width: 36px; height: 44px; }
+  .landing-brand span { font-size: 32px; letter-spacing: -1px; }
+  .landing-location { font-size: 12px; padding-top: 3px; }
+  .landing-copy { grid-column: 1 / -1; align-self: start; padding-top: 32px; }
+  .landing-copy h1 { font-size: clamp(42px, 10.8vw, 64px); line-height: 1.02; margin-bottom: 20px; }
+  .landing-copy p { font-size: 15px; max-width: 230px; }
+  .landing-illustration { position: static; grid-column: 1 / -1; grid-row: 3; justify-self: center; align-self: center; width: min(85%, 320px); height: clamp(160px, 30dvh, 280px); margin-top: 8px; pointer-events: none; }
+  .enter-button { position: static; grid-column: 2; grid-row: 4; justify-self: end; width: 60px; height: 60px; border-radius: 22px; margin-top: 12px; }
+  .sidebar { width: 72px; padding: 24px 12px; }
+  .sidebar-brand img { width: 40px; height: 47px; }
+  .form-page, .detail-page { margin-left: 72px; padding: 24px 16px 40px; }
+  .page-caption { font-size: 14px; margin-bottom: 24px; }
+  .orphanage-form { padding: 32px 24px; }
+  legend { font-size: 28px; margin-bottom: 24px; padding-bottom: 18px; }
+  .visitation-fields { margin-top: 44px; }
+  .label-hint { display: block; margin-left: 0; margin-top: 4px; }
+  .form-map { height: 190px; }
+  .coordinates-fields input { font-size: 16px; }
+  .map-footer { padding: 12px; font-size: 11px; }
+  .success-panel { padding: 36px 24px; }
+  .success-panel h1, .success-panel h2 { font-size: 30px; }
+  .directory-sidebar { height: auto; overflow: visible; padding: 24px; }
+  .directory-brand img { width: 36px; height: 44px; }
+  .directory-brand span { font-size: 32px; }
+  .directory-heading { margin-top: 26px; }
+  .directory-heading h1 { font-size: 28px; }
+  .directory-heading h1 br { display: none; }
+  .directory-heading p { margin-top: 10px; max-width: none; font-size: 15px; }
+  .directory-entries { margin-top: 24px; }
+  .orphanage-list { max-height: 250px; overflow-y: auto; }
+  .directory-footer { padding-top: 24px; }
+  .directory-footer strong { font-size: 16px; }
+  .directory-footer span { font-size: 13px; }
+  .directory-main { min-height: 60dvh; }
+  .directory-map { height: 60dvh; min-height: 360px; }
+  .directory-map .map-unavailable { font-size: 16px; padding: 60px 35px; }
+  .map-toolbar { right: 20px; bottom: 32px; }
+  .detail-body { padding: 32px 24px; }
+  .detail-body h1 { font-size: 32px; }
+  .detail-visitation h2 { font-size: 26px; }
+  .detail-text { font-size: 16px; }
+  .detail-photo-main { height: 230px; }
+  .visit-card { padding: 20px; }
+  .whatsapp-button { font-size: 14px; padding: 16px; }
+}
+@media (max-width: 479px) {
+  .sidebar { inset: 0 0 auto; width: 100%; height: 72px; padding: 12px 20px; flex-direction: row; }
+  .sidebar-brand img { width: 35px; height: 42px; }
+  .back-button { width: 42px; height: 42px; border-radius: 14px; }
+  .form-page, .detail-page { margin-left: 0; padding: 96px 16px 32px; }
+  .orphanage-form { padding: 28px 22px 32px; }
+  .page-caption { margin-bottom: 22px; }
+  .landing-copy { padding-top: 32px; }
+  .landing-copy h1 { font-size: 40px; }
+  .landing-copy p { font-size: 14px; }
+  .weekend-field { font-size: 14px; }
+  .primary-button { min-height: 56px; }
+  .detail-body { padding: 28px 22px; }
+}
+@media (max-height: 650px) and (min-width: 768px) {
+  .landing { padding-top: 35px; padding-bottom: 35px; }
+  .landing-copy { padding-top: 32px; }
+  .landing-copy h1 { font-size: 54px; margin-bottom: 20px; }
+  .landing-copy p { font-size: 17px; }
+  .landing-illustration { height: 91%; top: 3%; }
+  .enter-button { bottom: 35px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+}

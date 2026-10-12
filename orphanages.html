@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#15c3d6">
+  <meta name="description" content="Encontre um orfanato no mapa e planeje sua visita com o Happy.">
+  <title>Encontre um orfanato — Happy</title>
+  <link rel="icon" href="assets/map-marker.svg" type="image/svg+xml">
+  <!-- Bootstrap oficial, servido localmente antes do tema Happy. -->
+  <link rel="stylesheet" href="assets/vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="assets/vendor/bootstrap/bootstrap.bundle.min.js" defer></script>
+  <script src="scripts/app.js" defer></script>
+</head>
+<body class="directory-page" data-page="directory">
+  <a class="skip-link" href="#directory-map">Ir para o mapa</a>
+  <div class="container-fluid px-0">
+  <div class="row g-0 directory-layout">
+  <aside class="directory-sidebar col-12 col-md-5 col-lg-4 col-xl-3 d-flex flex-column">
+    <a class="brand directory-brand" href="index.html" aria-label="Happy, página inicial"><img src="assets/map-marker.svg" alt="" width="48" height="56"><span>hAppy</span></a>
+    <div class="directory-heading"><h1>Escolha um<br>orfanato no mapa</h1><p>Muitas crianças estão esperando a sua visita :)</p></div>
+    <div class="directory-entries">
+      <label class="search-label" for="directory-search">Orfanatos <span id="directory-count">(0)</span></label>
+      <input type="search" id="directory-search" class="directory-search form-control" placeholder="Buscar pelo nome" autocomplete="off">
+      <div id="orphanage-list" class="orphanage-list list-group gap-2" aria-live="polite"></div>
+      <div id="directory-empty" class="directory-empty"><p>Ainda não há orfanatos cadastrados.</p><a href="create-orphanage.html">Adicione o primeiro</a></div>
+      <p id="directory-feedback" class="directory-feedback" role="status"></p>
+    </div>
+    <footer class="directory-footer"><div><strong>Rio do Sul</strong><span>Santa Catarina</span></div><a class="btn back-button icon-button" href="index.html" aria-label="Voltar para a página inicial"><img src="assets/arrow-back.svg" alt="" width="24" height="24"></a></footer>
+  </aside>
+  <main class="directory-main col-12 col-md-7 col-lg-8 col-xl-9">
+    <div class="happy-map directory-map" id="directory-map" tabindex="0" role="region" aria-label="Mapa de orfanatos. Arraste para mover ou use as setas do teclado." data-mode="directory" data-lat="-27.2143" data-lng="-49.6430" data-zoom="13">
+      <div class="map-tiles" aria-hidden="true"></div><div class="map-markers"></div>
+      <div class="map-unavailable" hidden>Não foi possível carregar o mapa. Você pode acessar os orfanatos pela lista.</div>
+      <div class="map-controls" aria-label="Zoom do mapa"><button class="map-zoom-in" type="button" aria-label="Aproximar mapa">+</button><button class="map-zoom-out" type="button" aria-label="Afastar mapa">−</button></div>
+      <a class="map-attribution" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap</a>
+    </div>
+    <div class="map-toolbar"><button class="btn btn-light locate-button" id="locate-button" type="button">Minha localização</button><a class="btn add-orphanage icon-button" href="create-orphanage.html" aria-label="Adicionar um orfanato" title="Adicionar um orfanato"><img src="assets/plus.svg" alt="" width="28" height="28"></a></div>
+  </main>
+  </div>
+  </div>
+</body>
+</html>
